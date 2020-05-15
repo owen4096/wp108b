@@ -1,0 +1,11 @@
+array1=[[1,1,1],[33,33,3]];
+array2=[];
+for(i=0;i<array1.length;i++)
+{ 
+    array2[i]=[];
+    for(j=0;j<array1[i].length;j++)
+    {
+        array2[i][j]=array1[i][j]*-1;
+    }
+}
+console.log("負矩陣為",array2);
