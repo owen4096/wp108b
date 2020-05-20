@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+
+<title>城市戰場--真人ＣＳ槍戰等你來挑戰！！</title> 
+<meta name ="viewport" content = "width= device-width ;initial-scale=1">      <!-- -->
+<meta name="author" content="劉彥廷 資工1 110810515">                         <!--作者 --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<head>
+    <style>
+       body 
+        {
+          font-family: "微軟正黑體";    /*body字體設定*/
+        }
+        body h2
+        {
+          font-size: 60px;
+          padding: 70px 8px 10px 250px;  
+        }
+       
+        body p
+        { 
+          font-size: 60px;
+          padding: 0px 8px 32px 300px;
+        }
+        p a:link{
+          color : black;
+        }
+        p a:visited{
+          color : black;
+        }
+        .sidenav /*側欄設定*/
+         {
+          height: 100%; /*加長*/
+          width: 0;  /*一開始會不會跑出來*/
+          position: fixed; /*固定住位置*/
+          z-index: 1; /*layer的概念*/   
+          top: 0;
+          left: 0; 
+          background-color: #111; /*側欄背景顏色*/
+          overflow-x: hidden; /*一開始那些文字會不會跳出來*/
+          transition: 0.5s;   /*側欄收縮速度*/
+          padding-top: 60px;  /*側欄起始位置*/
+        }
+        
+        .sidenav a   /*側欄文字設定*/
+        {
+          padding: 32px 32px 8px 32px; /*側欄文字位置*/
+          text-decoration: none; /*沒有底線*/
+          font-size: 25px;  /*字體大小*/
+          color: #f1f1f1; /*顏色*/
+          display: block; /*將文字改成區塊元素 排版用*/
+          transition: 0.3s;  /*字體出現的時間 慢慢放大這樣*/
+        }
+        
+        .sidenav a:hover
+        {
+          color: #f1f1f1; /*滑鼠滑過去的時候的顏色*/
+        }
+        
+        .sidenav .closebtn /*側欄關閉鈕設定*/
+        {
+          position: absolute; /*定位closebutton*/
+          top: 0;            
+          right: 25px;        /*用留白設定closebutton位置*/
+          font-size: 36px;    /*closebutton大小*/
+          margin-left: 50px;  /*closebutton位置 但是被position吃掉了*/
+        }
+        .navbar  /*功能欄設定*/
+        { 
+          overflow: hidden;          /*多出來的文字不會跑出來 也可以改成auto 為了顯示功能表*/
+          background-image: url(back.jpg); /*背景*/
+        }
+        .navbar a   /*功能欄文字設定*/
+        {
+          font-family:"微軟正黑體";
+          float: center;                  /*排版用*/
+          font-size: 30px;             /*字體大小*/
+          color: white;             /*顏色*/
+          text-align: center;        /*置中*/
+          padding:  14px 30px;       /*文字方塊長寬*/
+          text-decoration: none;   /*無底線*/
+        }
+        .navbar b   /*功能欄文字設定*/
+        {
+          font-family:"微軟正黑體";
+          float: center;                  /*排版用*/
+          font-size: 30px;             /*字體大小*/
+          color: white;             /*顏色*/
+          text-align: center;        /*置中*/
+          padding: 20px 220px;       /*文字方塊長寬*/
+          text-decoration: none;   /*無底線*/
+        }
+       
+       
+        .navbar a:hover
+        {
+          background-color: gray;    /*滑鼠滑過去的時候的顏色*/
+        }
+
+        
+        
+        @media screen and (max-height: 450px)   /*用max-height的數值比例來對應字體大小及留白*/
+        {
+          .sidenav {padding-top: 15px;}   
+          .sidenav a {font-size: 18px;}   
+        }
+
+
+
+.slider_container 
+{
+  margin: 30px auto;
+  width: 600px;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+  border: 8px solid;
+  border-top-color: #856036;
+  border-left-color: #5d4426;
+  border-bottom-color: #856036;
+  border-right-color: #5d4426;
+  background-color: #f5f5f5;
+}
+.slider_container:before
+ {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  width: 100%;
+  height: 100%;
+ 
+  animation: bk 25s linear;
+}
+.slider_container div
+ {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  filter: alpha(opacity=100);
+  left: 100%;
+  width: 100%;
+  -webkit-animation: round 25s linear infinite;
+  animation: round 25s linear infinite;
+}
+.slider_container div img {
+  width: 100%;
+}
+@-webkit-keyframes round {
+  4% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    left: 0;
+    /* 0 - 1秒 滑入*/
+  }
+  20% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    left: 0;
+    /* 1- 5秒靜止*/
+  }
+  24% {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    left: -100%;
+    /* 5-6秒滑出*/
+  }
+  26% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    left: -100%;
+    /* 6-6.5秒變透明*/
+  } 
+  28% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    left: 100%;
+    /* 6.5-7秒回到起始位置*/
+  } 
+}
+@keyframes bk {
+  0% {
+    left: 0;
+    /* 初始位置*/
+  }
+  4% {
+    left: -100%;
+    /* 0 - 1秒 滑出*/
+  }   
+}
+
+@keyframes bk {
+  0% {
+    left: 0;
+    /* 初始位置*/
+  }
+  4% {
+    left: -100%;
+    /* 0 - 1秒 滑出*/
+  }  
+}
+.slider_container div:nth-child(5) {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+}
+.slider_container div:nth-child(4) {
+  -webkit-animation-delay: 5s;
+  animation-delay: 5s;
+}
+.slider_container div:nth-child(3) {
+  -webkit-animation-delay: 10s;
+  animation-delay: 10s;
+}
+.slider_container div:nth-child(2) {
+  -webkit-animation-delay: 15s;
+  animation-delay: 15s;
+}
+.slider_container div:nth-child(1) {
+  -webkit-animation-delay: 20s;
+  animation-delay: 20s;
+}
+.rwd_slider_container_wrapper {
+  margin: 30px auto !important;
+  width: 800px;
+  
+}
+.rwd_slider_container {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-bottom: 70%;
+  box-sizing: border-box;
+}
+.rwd_slider_container .slider_container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="mySidenav" class="sidenav">
+  
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <a href="D:\vscHomework\htmlhomework\wp108b\homework\middle\about.html">關於我們</a>
+  <a href="D:\vscHomework\htmlhomework\wp108b\homework\middle\money.html">收費標準</a>
+  <a href="D:\vscHomework\htmlhomework\wp108b\homework\middle\membership.html">會員福利</a>
+  <a href="D:\vscHomework\htmlhomework\wp108b\homework\middle\safe.html">安全規章</a>
+
+</div>
+
+<div class="navbar">
+  <span style="font-size:30px;cursor:pointer "  onclick="openNav()">&#9776; </span>
+  <a href="D:\vscHomework\htmlhomework\wp108b\homework\middle\homepage.html" >主頁</a>
+  <a href="https://www.facebook.com/CQB.Taipei" >FB官網</a>
+  <a href="D:\vscHomework\htmlhomework\wp108b\homework\middle\store.html" >營業店面</a>
+  <b>城市戰場--真人ＣＳ槍戰等你來挑戰！！</b>
+ 
+  
+
+  
+
+</div>
+    <div class="rwd_slider_container_wrapper">
+      <div class="rwd_slider_container">
+        <div class="slider_container" >
+         <div>
+            <img src="C:\Users\User\Desktop\map.png" alt="pure css slider" width="600" height="600" />
+          </div>
+          <div>
+            <img src="C:\Users\User\Desktop\no4.jpg" alt="pure css slider" width="600" height="600" />
+          </div>
+        
+          <div>
+            <img src="C:\Users\User\Desktop\no3.jpg" alt="pure css slider" width="600" height="600" />
+          </div>
+          <div>
+            <img src="C:\Users\User\Desktop\no2.jpg" alt="pure css slider" width="600" height="600" />
+          </div>
+
+          <div>
+            <img src="C:\Users\User\Desktop\no1.jpg" alt="pure css slider" width="600" height="600" />
+          </div>
+        
+        </div><!-- end of .pure_slider_container -->
+      </div><!-- end of .embed-responsive -->
+    </div><!-- end of .embed-responsive-box -->
+  
+<h2 class = "h2">News 戰場大小事</h2>
+<p>
+  <a href="https://www.facebook.com/CQB.Taipei/posts/4037798596260488">夢時代B2傑克《槍樂園》即將重新改造！</a><br>
+  <a href="https://www.facebook.com/CQB.Taipei/posts/3981126691927679">新戰場會員限時免費活動！！你還在等什麼？</a><br>
+  <a href="https://www.facebook.com/CQB.Taipei/posts/3973846832655665l">公告：夢時代場地即將擴大改建並建立新的粉絲專業！</a><br>
+</p>
+  
+ 
+ 
+<script>
+    function openNav() 
+    {
+      document.getElementById("mySidenav").style.width = "250px";  //開啟側欄的function
+    }
+        
+    function closeNav() 
+    {
+      document.getElementById("mySidenav").style.width = "0";  //關閉側欄的function
+    }
+</script>
+</body>
+</html>

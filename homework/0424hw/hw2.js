@@ -23,8 +23,3 @@ sava=Math.sqrt(d);
 console.log("標準差為:",sava);
 
 
-while(f>0)
-{
-    f+=1;
-    console.log("F:",f);
-}
