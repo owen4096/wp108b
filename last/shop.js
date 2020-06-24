@@ -14,7 +14,7 @@ const Shop = {
   <div>
   
     <button class="big" onclick="Pos.start()">新增訂單</button><br/><br/>
-    <button class="big" onclick="Report.start()">本日報表</button><br/><br/>
+    <button class="big" onclick="Report.start()">店鋪報表</button><br/><br/>
     <button class="big" onclick="Setting.start()">商店設定</button><br/><br/>
   </div>
   `
