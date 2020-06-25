@@ -73,3 +73,4 @@ Report.orderDetailHtml = function (order) {
   }
   return detail.join('\n')
 }
+
