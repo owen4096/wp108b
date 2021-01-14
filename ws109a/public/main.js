@@ -12,21 +12,21 @@ var app = new Vue({
           {
             id:'2',
             itemName:'純手工短袖黑T',
-            imgUrl:'https://github.com/owen4096/wp108b/blob/master/ws109a/public/2.png',
+            imgUrl:'https://github.com/owen4096/wp108b/blob/master/ws109a/public/2.png?raw=true',
             price:'790',
             count:'1'
           },
           {
             id:'3',
             itemName:'超時尚牛仔庫',
-            imgUrl:'https://github.com/owen4096/wp108b/blob/master/ws109a/public/3.png',
+            imgUrl:'https://github.com/owen4096/wp108b/blob/master/ws109a/public/3.png?raw=true',
             price:'1200',
             count:'1'
           },
           {
             id:'4',
             itemName:'質感褐色系短褲',
-            imgUrl:'https://github.com/owen4096/wp108b/blob/master/ws109a/public/4.png',
+            imgUrl:'https://github.com/owen4096/wp108b/blob/master/ws109a/public/4.png?raw=true',
             price:'2300',
             count:'1'
           },
