@@ -5,7 +5,7 @@ var app = new Vue({
           {
             id:'1',
             itemName:'極簡約素色白T',
-            imgUrl:'https://github.com/owen4096/wp108b/blob/master/ws109a/public/1.png',
+            imgUrl:'https://github.com/owen4096/wp108b/blob/master/ws109a/public/1.png?raw=true',
             price:'500',
             count:'1'
           },
