@@ -24,5 +24,5 @@ async function mainPage(ctx){
     ctx.response.redirect('/public/shopcar.html')
 }
 
-console.log('Server run at http://127.0.0.1:8000');
-await app.listen({ hostname: "127.0.0.1", port: 8000});
+console.log('Server run at http://172.104.100.20:8006');
+await app.listen({ hostname: "172.104.100.20", port: 8006});
